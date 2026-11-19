@@ -167,6 +167,34 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font:40
     </article>
 
     <article class="proj">
+      <h3>Human detection for the Voltrac Tierra</h3>
+      <p>A YOLO-based safety check on the front camera of an outdoor ground robot, written as part of the Voltrac take-home work. It runs on a recorded driving session and is compared against the robot's own sense-and-stop system.</p>
+      <ul>
+        <li>Pretrained YOLO11n (person class, 0.4 confidence) run on every front-centre RGB frame of the MCAP log, 3,344 frames</li>
+        <li>Per-frame log of detections and confidence, aligned by timestamp with the robot's safe-to-move flag and speed limit, plus an annotated video</li>
+        <li>People were detected in about half the frames, but they moved clear of the robot's path, so the safety system never had to stop it</li>
+      </ul>
+      <ul class="tags"><li>YOLO11n</li><li>OpenCV</li><li>Python</li><li>MCAP</li></ul>
+      <div class="links">
+        <a href="https://github.com/davidobello/human-detection-yolo" target="_blank" rel="noopener">Source on GitHub</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <h3>GPS-anchored panorama mapping</h3>
+      <p>A street-view-style mapping tool for the same robot. It turns six camera streams and GNSS fixes into 360-degree panoramas placed on the map.</p>
+      <ul>
+        <li>A keyframe is triggered every set distance travelled, measured in a local ENU frame from GPS</li>
+        <li>Six camera frames are projected onto one equirectangular image using each camera's calibration, with the sharpest line of sight chosen per pixel to avoid parallax ghosting</li>
+        <li>Brightness is matched across cameras, and each panorama is saved with its latitude and longitude in a metadata file</li>
+      </ul>
+      <ul class="tags"><li>OpenCV</li><li>Equirectangular projection</li><li>ENU</li><li>GNSS</li></ul>
+      <div class="links">
+        <a href="https://github.com/davidobello/tierra-360-panorama" target="_blank" rel="noopener">Source on GitHub</a>
+      </div>
+    </article>
+
+    <article class="proj">
       <h3>PX4 and Gazebo drone simulation</h3>
       <p>A software-in-the-loop drone setup that is the groundwork for an LLM-controlled UAV.</p>
       <ul>
